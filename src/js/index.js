@@ -1,30 +1,33 @@
 'use strict';
-import axios from 'axios';
+import {fetchPixabayImages} from './pixabay-api';
 import { Notify } from 'notiflix';
-const axios = require('axios').default;
+import SimpleLightbox from 'simplelightbox';
+import cardTemplate from '../template/cardTemplate.hbs';
 
 // https://pixabay.com/api/
-const PIXABEY_KEY = '12TS2iUidJjx1jUh8gUjyyFFFDbbuZ8MTr';
+
 
 const formEl = document.querySelector('#search-form');
 const inputEl = formEl.querySelector('[name="searchQuery"]');
 const submitBtn = formEl.querySelector('button');
-const searchData = '';
+let searchData = '';
 
 console.log(submitBtn);
-console.dir(formEl);
-axios.get(`https://pixabay.com/api/?${PIXABEY_KEY}?q=${searchData}`).then((response) => {
-    console.log(response);
-}).catch((error) => {
-    console.log(error);
-})
+console.dir(inputEl);
 
-submitBtn.addEventListener('submit', onSubmit);
+
+formEl.addEventListener('submit', onSubmit);
 
 function onSubmit(e) {
+    e.preventDefault();
+    console.dir(e);
+    console.log(inputEl.value);
     searchData = inputEl.value;
-    if (!searchData) {
+    if (searchData === '') {
         return Notify.info('Cogito ergo sum');
 
     }
+
+    pixabayApi('water');
 }
+
