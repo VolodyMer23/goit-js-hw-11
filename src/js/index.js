@@ -22,6 +22,9 @@ let lightbox = new SimpleLightbox('.image-card a', {
   captionDelay: 250,
 });
 
+window.addEventListener('scroll', throttle(infiniteScroll, 500));
+formEl.addEventListener('submit', onSubmit);
+
 async function onSubmit(e) {
   e.preventDefault();
   console.dir(e);
@@ -105,11 +108,11 @@ async function loadMoreImg(e) {
 // Нескінченний скрол
 function infiniteScroll() {
   scrollToTopFunction();
-
-  if (
-    window.scrollY + window.innerHeight >=
-    document.documentElement.scrollHeight
-  ) {
+  const scrollH = document.documentElement.scrollHeight;
+  console.log(window.scrollY);
+  console.log(window.innerHeight);
+  console.log('Scroll height', scrollH);
+  if (window.scrollY + window.innerHeight >= scrollH - 300) {
     loadMoreImg();
   }
 
@@ -135,6 +138,3 @@ function scrollToTopFunction() {
     scrollToTopBtn.style.display = 'none';
   }
 }
-
-window.addEventListener('scroll', throttle(infiniteScroll, 500));
-formEl.addEventListener('submit', onSubmit);
