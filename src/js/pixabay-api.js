@@ -10,8 +10,9 @@ export default async function fetchPixabayImages(searchData, page) {
 
   return await axios
     .get(`${BASE_URL}${filter}`)
-    .then(response => response.data)
+    .then(response => response)
     .catch(error => {
       console.log(error.toJSON());
     });
+  
 }
