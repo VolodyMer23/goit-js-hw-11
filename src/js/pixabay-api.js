@@ -1,7 +1,5 @@
 'use strict';
 import axios from 'axios';
-const axios = require('axios').default;
-const BASE_URL = 'https://pixabay.com/api/';
 
 export default async function fetchPixabayImages(searchData, page) {
   const BASE_URL = 'https://pixabay.com/api/';
@@ -10,7 +8,7 @@ export default async function fetchPixabayImages(searchData, page) {
 
   return await axios
     .get(`${BASE_URL}${filter}`)
-    .then(response => response)
+    .then(response => response.data)
     .catch(error => {
       console.log(error.toJSON());
     });

@@ -1,0 +1,146 @@
+html {
+  scroll-behavior: smooth;
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+a {
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+.is-hidden {
+  display: none;
+}
+
+.search-form {
+    display: flex;
+    background-color: rgb(29, 29, 29);
+    height: 35px;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.search-form input {
+    width: 500px;
+    border-radius: 5px;
+    border: none;
+}
+
+.search-form button {
+    width: 200px;
+    background-color: orangered;
+    border-radius: 5px;
+    border: none;
+    color: #fff;
+}
+
+.search-form button:hover,
+.search-form button:focus {
+    background-color: rgb(177, 47, 0);
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: 250px 250px 250px 250px;
+  gap: 15px;
+  row-gap: 25px;
+  justify-content: center;
+}
+
+.image-card {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 250px;
+  height: 200px;
+  background-color: #fff;
+  box-shadow: 5px 5px 5px rgba(73, 73, 73, 0.1);
+  
+}
+
+.image-wrapper {
+  width: 250px;
+  height: 150px;
+  overflow: hidden;
+}
+.image-wrapper a img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  gap: 5px;
+}
+
+.image-info {
+  font-size: 12px;
+}
+@keyframes slide-top {
+  from {
+    transform: scale(0.9);
+  }
+  to {
+    transform: scale(1.1);
+  }
+}
+
+@keyframes scaler {
+  from {
+    transform: scale(0.8);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+.scroll-to-top {
+  position: fixed;
+  bottom: 5vh;
+  right: 30px;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  background-color: orangered;
+  border: none;
+  border-radius: 50%;
+  animation: slide-top 750ms linear, scaler 1500ms infinite alternate both;
+  z-index: 10;
+}
+.arrow-top {
+  fill: #fff;
+}
