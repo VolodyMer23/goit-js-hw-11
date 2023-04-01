@@ -22,9 +22,6 @@ let lightbox = new SimpleLightbox('.image-card a', {
   captionDelay: 250,
 });
 
-window.addEventListener('scroll', throttle(infiniteScroll, 500));
-formEl.addEventListener('submit', onSubmit);
-
 async function onSubmit(e) {
   e.preventDefault();
   console.dir(e);
@@ -94,7 +91,7 @@ function imageCardMarkup(fetchedArray) {
 async function loadMoreImg(e) {
   page += 1;
   const fetchedData = await fetchPixabayImages(searchData, page);
-  imageCardMarkup(fetchedData.hits);
+  await imageCardMarkup(fetchedData.hits);
   lightbox.refresh();
   currentHits += fetchedData.hits.length;
   Notify.info('40 more images loaded');
@@ -138,3 +135,6 @@ function scrollToTopFunction() {
     scrollToTopBtn.style.display = 'none';
   }
 }
+
+window.addEventListener('scroll', throttle(infiniteScroll, 500));
+formEl.addEventListener('submit', onSubmit);
