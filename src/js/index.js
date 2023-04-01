@@ -109,9 +109,6 @@ async function loadMoreImg(e) {
 function infiniteScroll() {
   scrollToTopFunction();
   const scrollH = document.documentElement.scrollHeight;
-  console.log(window.scrollY);
-  console.log(window.innerHeight);
-  console.log('Scroll height', scrollH);
   if (window.scrollY + window.innerHeight >= scrollH - 300) {
     loadMoreImg();
   }
